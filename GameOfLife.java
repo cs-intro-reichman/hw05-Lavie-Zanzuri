@@ -14,7 +14,7 @@ public class GameOfLife {
 		//// test1(fileName);
 		//// test2(fileName);
 		//// test3(fileName, 3);
-		//// play(fileName);
+		play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
@@ -63,7 +63,6 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		//// Replace the following statement with your code.
 		for(int i = 1 ; i < rows - 1 ; i ++) {
 			String st = in.readLine();
 			for (int j = 1 ; j < cols - 1 ; j ++) {
@@ -83,8 +82,8 @@ public class GameOfLife {
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
 		//// Replace the following statement with your code.
-		for(int i = 1 ; i < board.length ; i ++) {
-			for ( int j = 1 ; j < board [0].length ; j ++) {
+		for(int i = 1 ; i < board.length - 1 ; i ++) {
+			for ( int j = 1 ; j < board [0].length - 1 ; j ++) {
 				board [i] [j] = cellValue(board,i,j);
 			}
 		}
@@ -135,8 +134,8 @@ public class GameOfLife {
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
 		//// Write your code here.
-	    for(int i = 0 ; i < arr.length ; i ++) {
-			for (int j = 0 ; j < arr[0].length ; j ++) {
+		for(int i = 0 ; i < arr.length - 1 ; i ++) {
+			for (int j = 0 ; j < arr[0].length - 1 ; j ++) {
 				System.out.printf("%3s" , arr[i][j]);
 			}
 			System.out.println();
