@@ -65,8 +65,9 @@ public class GameOfLife {
 		int[][] board = new int[rows + 2][cols + 2];
 		//// Replace the following statement with your code.
 		for(int i = 1 ; i < rows - 1 ; i ++) {
+			String st = in.readLine();
 			for (int j = 1 ; j < cols - 1 ; j ++) {
-				if (fileName.charAt(j) == 'x') {
+				if (st.charAt(j) == 'x') {
 					board [i] [j] = 1 ;
 				}
 				else {
