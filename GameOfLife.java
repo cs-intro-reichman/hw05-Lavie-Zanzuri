@@ -67,10 +67,10 @@ public class GameOfLife {
 			String st = in.readLine();
 			for (int j = 1 ; j < st.length() ; j ++) {
 				if (st.charAt(j) == 'x') {
-					board [i] [j] = 1 ;
+					board [i] [j+1] = 1 ;
 				}
 				else {
-					board [i] [j] = 0 ;
+					board [i] [j+1] = 0 ;
 				}
 			}
 		}
@@ -102,24 +102,24 @@ public class GameOfLife {
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
 		//// Replace the following statement with your code.
-		int newboard = 0 ;
+		int cellValue = 0 ;
 		if (board [i] [j] == 1) {
 			if (count(board,i,j) >= 2 && count(board,i,j) <= 3 ) {
-				newboard = 1 ;
+				cellValue = 1 ;
 			}
 			if(count(board,i,j) < 2) {
-				newboard = 0 ;
+				cellValue = 0 ;
 			}
 			if(count(board,i,j) > 3) {
-				newboard = 0 ;
+				cellValue = 0 ;
 			}
 		}	
 		if(board [i] [j] == 0) {
 			if(count(board,i,j) == 3) {
-				newboard = 1;
+				cellValue = 1;
 			}
 		}
-		return newboard;
+		return cellValue;
 	}
 	
 	// Counts and returns the number of living neighbors of the given cell
